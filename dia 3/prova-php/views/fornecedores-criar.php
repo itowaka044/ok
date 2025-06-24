@@ -1,8 +1,15 @@
-<?php require __DIR__ . '/layout/header.php'; ?>
+<?php 
+require __DIR__ . '/layout/header.php';
+require_once 'security\CsrfToken.php';
+$token = CsrfToken::gerarToken('criar_fornecedor');
+?>
 
 <h2>Novo Fornecedor</h2>
 
 <form action="criar" method="post">
+
+    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($token)?>">
+
     <input type="hidden" name="id" value="<?= $f['id'] ?>">
     
     <label>Empresa</label> 

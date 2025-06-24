@@ -1,4 +1,8 @@
-<?php require __DIR__ . '/layout/header.php'; ?>
+<?php 
+require __DIR__ . '/layout/header.php'; 
+require_once 'security\CsrfToken.php';
+$token = CsrfToken::gerarToken('login')
+?>
 
 <h2>Login</h2>
 
@@ -8,8 +12,10 @@
     </p>
 <?php endif; ?>
 
-<form action="" method="post">
+<form action="login" method="post">
     <label>Usuário</label>
+
+    <input type="hidden" name="csrf_token" value="<?= $token ?>">
     <input type="text" name="username" required>
 
     <label>Senha</label>

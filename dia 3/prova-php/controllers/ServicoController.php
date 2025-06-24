@@ -85,6 +85,14 @@ class ServicoController {
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $token = $_POST['csrf_token'];
+
+            if(!CsrfToken::validarToken('editar_servico', $token)){
+                die('token invalido');
+            }
+
+
             $idSer = $_POST['id-ser'];
             $idFor = $_POST['fornecedor_id'];
             $titulo = $_POST['titulo'];

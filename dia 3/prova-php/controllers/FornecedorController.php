@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../models/Fornecedor.php';
+require_once 'security\CsrfToken.php';
 
 class FornecedorController {
 
@@ -37,11 +38,17 @@ class FornecedorController {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+            $token = $_POST['csrf_token'];
+
+            if(!CsrfToken::validarToken('criar_fornecedor',$token)){
+                // var_dump($token);
+                die('token inválido');
+            }
+
             $nome= $_POST['nome_empresa'];
             $email=$_POST['email_principal'];
             $tel=$_POST['telefone_principal'];
             $end=$_POST['endereco'];
-
 
             Fornecedor::criarFornecedor($nome, $email, $tel, $end);
 

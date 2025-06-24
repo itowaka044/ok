@@ -1,4 +1,8 @@
-<?php require __DIR__ . '/layout/header.php'; ?>
+<?php require __DIR__ . '/layout/header.php';
+require_once 'security\CsrfToken.php';
+
+$token = CsrfToken::gerarToken('editar_servico');
+?>
 
 <h2>Editar Serviço</h2>
 
@@ -16,6 +20,8 @@
   ?>
 
 <form action="/prova-php/servicos/atualizar" method="post">
+
+  <input type="hidden" name="csrf_token" value="<?= $token ?>">
   <input type="hidden" name="id-ser" value="<?= $_GET['id-ser'] ?>">
 
   <label>Fornecedor</label>

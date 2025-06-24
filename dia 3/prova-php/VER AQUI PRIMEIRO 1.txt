@@ -16,7 +16,7 @@ FORNECEDORES
 
 SERVIÇOS dos Fornecedores
 [x] - Buscar no banco e listar os servicos de um fornecedor nos cards usando a função cardServicos() e e limitar a duas casas decimais os preços dos servicos;
-[] - Fazer funcionar a edição de serviços;
+[x] - Fazer funcionar a edição de serviços;
 [x] - Apagar Serviços;
 
 - Talvez seja necessário arruma algumas rotas dependendo das suas alterações no código;
