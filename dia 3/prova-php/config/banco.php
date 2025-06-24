@@ -14,5 +14,26 @@ abstract class Banco {
         }
         return self::$conn;
     }
+
+    // PDO
+    // public static function getConn() {
+    //     if (!isset(self::$conn)) {
+    //         try {
+    //             $dsn = "mysql:host=localhost;port=3307;dbname=banco-prova;charset=utf8mb4";
+    //             $usuario = "root";
+    //             $senha = "";
+
+    //             self::$conn = new PDO($dsn, $usuario, $senha);
+    //             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    //         } catch (PDOException $e) {
+    //             die("Erro ao conectar ao banco: " . $e->getMessage());
+    //         }
+    //     }
+
+    //     return self::$conn;
+    // }
 }
+    
+
 ?>
